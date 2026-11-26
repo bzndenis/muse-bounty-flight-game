@@ -41,4 +41,14 @@ Semua waktu di bawah ini WIB (Asia/Jakarta).
 - Play-test 6: crash di (317,27,206): glide slope terlalu landai — pesawat mencapai tanah di luar ujung runway (terrain naik curam). Perbaikan: final 2 fase (turun ke threshold 20 m, lalu flare -2,5 m/s dengan targetVs).
 - Play-test 7 LULUS: takeoff → 6/6 ring → landing di (-84,4,197), heading 0°, skor 2.098, waktu 201 dtk, fuel isi ulang 100, 0 console error, 11 request lokal saja.
 
-## 2026-11-26 09:40 WIB — Verifikasi gate + repo (menyusul di bawah)
+## 2026-11-26 09:40 WIB — Verifikasi gate + repo
+- Play-test 7 (final) LULUS: takeoff → 6/6 ring → landing di (-84,4,197) heading 0°, skor 2.098, waktu 201 dtk, fuel isi ulang 100, 0 console error, 11 request dan semuanya lokal (index.html + 10 modul), restart dengan R kembali ke play.
+- Gate: game/ 11 file, 70.009 byte (batas 993 / 48 MiB); index.html 918 byte (batas 1 MiB); 0 symlink; 0 referensi http/https di game/; 4 screenshot @1280x720, masing-masing ≤256 KiB (74.995–102.977); dossier.json 562.876 byte (batas 1,5 MiB), schema makefun/dossier/v1, cover 0, teks 70.787 byte (batas 163.840), memuat ke-11 file sumber.
+- Determinisme: dua run main.ts → diff -r IDENTIK; take-shots dijalankan 2x → sha256 keempat screenshot IDENTIK.
+- Repo GitHub: /root/.ssh kosong lagi (hilang saat restart VM) → dipulihkan dari /home/hatch/.ssh (config + id_ed25519_github_v2), known_hosts dibangun ulang via ssh-keyscan, fingerprint ED25519 SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU terverifikasi; ssh -T git@github.com → "Hi bzndenis!".
+- Perintah: python3 ~/workspace/custom-connectors/custom.github/bin/github.py create-repo --name muse-bounty-flight-game → 201, repo publik bzndenis/muse-bounty-flight-game (id 1472545102, dibuat 2026-11-26T01:51:28Z — setelah kompetisi dibuka 01:05 UTC).
+- .makefun/owner.json ditulis (wallet xmdc6uZt9KpQRwTMEBShUC2YJZYhqw6U1PM7NefvXeq, sama seperti entri sebelumnya).
+- git init, commit 506f4513305b822efa686e4b2141117ee75b871c "Langit Nusantara: original 3D-style flight game for make.fun best-flight-game bounty", push main → OK. Homepage di-set ke halaman bounty, topics: makefun, flight-game, javascript, canvas-game. Verifikasi: local HEAD = remote HEAD (506f4513…).
+- Catatan: API.json dan RULES.txt TIDAK ikut ke repo (dokumen kit, hanya lokal).
+- Link bounty sudah ada di ~/workspace/bounty-seen.txt (1 entri, didedup).
+- SUBMIT BELUM DILAKUKAN. Yang masih dibutuhkan dari Denis: submit manual sebelum deadline Sabtu 28 Nov 2026 07:57 WIB (via website make.fun atau CLI), karena langkah submit CLI diblokir di environment ini. Transkrip final (bundle) perlu dirakit saat submit dari sesi ini + BUILD_LOG.md ini.
